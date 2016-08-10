@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Awesome Places in Edinburgh</title>
+    <title>Wee Edinburgh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
 
-    <div id="map"></div>
+    <div class="navmenu navmenu-default navmenu-fixed-left">
+      <h1 style="font-size:24px;margin-left:10px;" ">Wee Edinburgh</h1>
+      <p style="margin-left:10px;">Your local guide to Edinburgh's most awesome places.</p>
+      <ul class="nav navmenu-nav">
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+    </div>
 
+    <div class="canvas">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div>
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
     <script src="js/application.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDVXq6jZ_UPisZwnMuIbmRDWOeHujKwI_g&callback=initMap">
     </script>

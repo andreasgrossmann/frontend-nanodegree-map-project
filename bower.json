@@ -1,0 +1,21 @@
+{
+  "name": "frontend-nanodegree-map-project",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Andreas Grossmann"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/andreasgrossmann/frontend-nanodegree-map-project",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jasny-bootstrap": "^3.1.3"
+  }
+}

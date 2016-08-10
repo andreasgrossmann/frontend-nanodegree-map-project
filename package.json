@@ -1,0 +1,22 @@
+{
+  "name": "frontend-nanodegree-map-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreasgrossmann/frontend-nanodegree-map-project.git"
+  },
+  "author": "Andreas Grossmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreasgrossmann/frontend-nanodegree-map-project/issues"
+  },
+  "homepage": "https://github.com/andreasgrossmann/frontend-nanodegree-map-project#readme",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
