@@ -1,3 +1,190 @@
+'use strict';
+
+var locations = [{
+  "title": "Wings",
+  "icon": "img/chicken-wing.png",
+  "coordinates": {
+    "lat": 55.949443,
+    "lng": -3.189398
+  },
+  "content": "The best chicken wings in town."
+},
+{
+  "title": "Baked Potato Shop",
+  "icon": "img/potato.png",
+  "coordinates": {
+    "lat": 55.950501,
+    "lng": -3.188515
+  },
+  "content": "Delicious baked potatoes with a variety of different fillings."
+},
+{
+  "title": "Brew Dog",
+  "icon": "img/beer.png",
+  "coordinates": {
+    "lat": 55.948594,
+    "lng": -3.189563
+  },
+  "content": "Amazing craft beer."
+},
+{
+  "title": "Oink",
+  "icon": "img/yummy.png",
+  "coordinates": {
+    "lat": 55.949393,
+    "lng": -3.194352
+  },
+  "content": "Delicious pulled pork sandwiches."
+},
+{
+  "title": "Petit Paris",
+  "icon": "img/wine.png",
+  "coordinates": {
+    "lat": 55.947736,
+    "lng": -3.196568
+  },
+  "content": "Probably the best French restaurant in town."
+},
+{
+  "title": "The Devil's Advocate",
+  "icon": "img/dark-beer.png",
+  "coordinates": {
+    "lat": 55.950462,
+    "lng": -3.191650
+  },
+  "content": ""
+},
+{
+  "title": "Harajuku Kitchen",
+  "icon": "img/sushi-box.png",
+  "coordinates": {
+    "lat": 55.940836,
+    "lng": -3.203995
+  },
+  "content": "Probably the best Japanese Restaurant in town."
+},
+{
+  "title": "Stockbridge Market",
+  "icon": "img/street-food.png",
+  "coordinates": {
+    "lat": 55.957681,
+    "lng": -3.208512
+  },
+  "content": ""
+},
+{
+  "title": "The Holyrood 9A",
+  "icon": "img/burger.png",
+  "coordinates": {
+    "lat": 55.949501,
+    "lng": -3.182734
+  },
+  "content": ""
+},
+{
+  "title": "Arthur's Seat",
+  "icon": "img/shoe.png",
+  "coordinates": {
+    "lat": 55.944635,
+    "lng": -3.161833
+  },
+  "content": ""
+},
+{
+  "title": "Hank's",
+  "icon": "img/sandwich.png",
+  "coordinates": {
+    "lat": 55.943015,
+    "lng": -3.211281
+  },
+  "content": ""
+},
+{
+  "title": "The Oz Bar",
+  "icon": "img/8-ball.png",
+  "coordinates": {
+    "lat": 55.947682,
+    "lng": -3.192091
+  },
+  "content": ""
+},
+{
+  "title": "The Bon Vivant",
+  "icon": "img/cocktail.png",
+  "coordinates": {
+    "lat": 55.954163,
+    "lng": -3.199671
+  },
+  "content": ""
+},
+{
+  "title": "Ali Willmore Hairdressing",
+  "icon": "img/haircut.png",
+  "coordinates": {
+    "lat": 55.950488,
+    "lng": -3.184093
+  },
+  "content": ""
+},
+{
+  "title": "Skyscanner",
+  "icon": "img/unicorn.png",
+  "coordinates": {
+  "lat": 55.944458,
+  "lng": -3.194548
+  },
+  "content": ""
+},
+{
+  "title": "Rockstar North",
+  "icon": "img/rocket.png",
+  "coordinates": {
+    "lat": 55.950382,
+    "lng": -3.176155
+  },
+  "content": ""
+},
+{
+  "title": "Lovecrumbs",
+  "icon": "img/coffee.png",
+  "coordinates": {
+    "lat": 55.946127,
+    "lng": -3.201857
+  },
+  "content": ""
+},
+{
+  "title": "Pinnies & Poppy Seeds",
+  "icon": "img/doughnut.png",
+  "coordinates": {
+    "lat": 55.950265,
+    "lng": -3.183600
+  },
+  "content": ""
+},
+{
+  "title": "Wee Bite",
+  "icon": "img/bacon.png",
+  "coordinates": {
+    "lat": 55.950518,
+    "lng": -3.184185
+  },
+  "content": ""
+},
+{
+  "title": "La Favorita",
+  "icon": "img/pizza.png",
+  "coordinates": {
+    "lat": 55.964715,
+    "lng": -3.176667
+  },
+  "content": ""
+}];
+
+
+
+
+
 // Create map variable
 var map;
 // Initialize map within map div
@@ -12,58 +199,36 @@ function initMap() {
     mapTypeControl: false
   });
 
-  // Create a single latLng literal object.
-  var wings = {lat: 55.949443, lng: -3.189398};
-  var bakedPotatoShop = {lat: 55.950501, lng: -3.188515};
-  var brewDog = {lat: 55.948594, lng: -3.189563};
-  var oink;
-  var petitParis;
-  var devilsAdvocate;
-  var harajuku;
-  var stockbridgeMarket;
-  var holyrood9A;
-  var arthursSeat;
-  var hanks;
-  var akva;
-  var fountainbridgeMarket;
-  var ozBar;
-  var bonVivant;
-  var aliWillmore;
-  var skyScanner;
-  var rockstarGames;
-  var loveCrumbs;
-  var pinnies;
-  var pieMaker;
-  var laFavorita;
 
+  locations.forEach(function(location) {
   // Marker
   var marker = new google.maps.Marker({
-    position: wings,
+    position: location.coordinates,
     map: map,
-    title: 'Wings Edinburgh',
-    animation: google.maps.Animation.DROP
-  });
-
-  var marker = new google.maps.Marker({
-    position: bakedPotatoShop,
-    map: map,
-    title: 'Baked Potato Shop',
-    animation: google.maps.Animation.DROP
-  });
-
-  var marker = new google.maps.Marker({
-    position: brewDog,
-    map: map,
-    title: 'BrewDog Edinburgh',
+    icon: location.icon,
+    title: location.title,
     animation: google.maps.Animation.DROP
   });
 
   // Infowindow
   var infowindow = new google.maps.InfoWindow({
-    content: 'The best chicken wings in town.'
+    content: location.content
   });
   marker.addListener('click', function() {
     infowindow.open(map, marker);
   });
+})
+
+}
+
+
+
+
+
+
+
+
+
+function EdinburghViewModel() {
 
 }
