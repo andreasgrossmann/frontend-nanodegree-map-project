@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/andreasgrossmann/frontend-nanodegree-map-project#readme",
   "devDependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-uglify": "^2.0.0"
   }
 }
