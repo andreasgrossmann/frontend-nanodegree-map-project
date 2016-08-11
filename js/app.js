@@ -52,7 +52,7 @@ var locations = [{
     "lat": 55.950462,
     "lng": -3.191650
   },
-  "content": ""
+  "content": "Amazing selection of fine beers and whiskeys."
 },
 {
   "title": "Harajuku Kitchen",
@@ -70,7 +70,7 @@ var locations = [{
     "lat": 55.957681,
     "lng": -3.208512
   },
-  "content": ""
+  "content": "Farmers' market, amazing street food."
 },
 {
   "title": "The Holyrood 9A",
@@ -79,7 +79,7 @@ var locations = [{
     "lat": 55.949501,
     "lng": -3.182734
   },
-  "content": ""
+  "content": "Probably the best burgers in town."
 },
 {
   "title": "Arthur's Seat",
@@ -88,7 +88,7 @@ var locations = [{
     "lat": 55.944635,
     "lng": -3.161833
   },
-  "content": ""
+  "content": "Climb it and enjoy a great view of the city."
 },
 {
   "title": "Hank's",
@@ -97,7 +97,7 @@ var locations = [{
     "lat": 55.943015,
     "lng": -3.211281
   },
-  "content": ""
+  "content": "Amazing sandwiches and salads."
 },
 {
   "title": "The Oz Bar",
@@ -106,7 +106,7 @@ var locations = [{
     "lat": 55.947682,
     "lng": -3.192091
   },
-  "content": ""
+  "content": "Awesome place to go for a game of pool."
 },
 {
   "title": "The Bon Vivant",
@@ -115,7 +115,7 @@ var locations = [{
     "lat": 55.954163,
     "lng": -3.199671
   },
-  "content": ""
+  "content": "Great food and drinks."
 },
 {
   "title": "Ali Willmore Hairdressing",
@@ -124,7 +124,7 @@ var locations = [{
     "lat": 55.950488,
     "lng": -3.184093
   },
-  "content": ""
+  "content": "Probably the best hairdresser in town."
 },
 {
   "title": "Skyscanner",
@@ -133,7 +133,7 @@ var locations = [{
   "lat": 55.944458,
   "lng": -3.194548
   },
-  "content": ""
+  "content": "Edinburgh's local unicorn, use their app to find cheap flights."
 },
 {
   "title": "Rockstar North",
@@ -142,7 +142,7 @@ var locations = [{
     "lat": 55.950382,
     "lng": -3.176155
   },
-  "content": ""
+  "content": "This is where people work on the latest Grand Theft Auto game."
 },
 {
   "title": "Lovecrumbs",
@@ -151,7 +151,7 @@ var locations = [{
     "lat": 55.946127,
     "lng": -3.201857
   },
-  "content": ""
+  "content": "Probably the best coffee in town."
 },
 {
   "title": "Pinnies & Poppy Seeds",
@@ -160,7 +160,7 @@ var locations = [{
     "lat": 55.950265,
     "lng": -3.183600
   },
-  "content": ""
+  "content": "Amazing shortbread, doughnuts and other treats."
 },
 {
   "title": "Wee Bite",
@@ -169,7 +169,7 @@ var locations = [{
     "lat": 55.950518,
     "lng": -3.184185
   },
-  "content": ""
+  "content": "Probably the best bacon rolls in town."
 },
 {
   "title": "La Favorita",
@@ -178,7 +178,7 @@ var locations = [{
     "lat": 55.964715,
     "lng": -3.176667
   },
-  "content": ""
+  "content": "Amazing pizza!"
 }];
 
 
