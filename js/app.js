@@ -1,5 +1,7 @@
 'use strict';
 
+// Model
+
 var locations = [{
   "title": "Wings",
   "icon": "img/chicken-wing.png",
@@ -187,9 +189,102 @@ var locations = [{
 
 // Create map variable
 var map;
-// Initialize map within map div
+
+
+
+
+
+
+
+// View Model
+
+function ViewModel() {
+
+  var self = this;
+
+  // Turn the 'locations' json array of objects into an observable array
+  self.locations = ko.observableArray(locations);
+
+  var marker;
+
+
+  self.locations().forEach(function(location) {
+    // Markers
+    marker = new google.maps.Marker({
+      position: location.coordinates,
+      map: map,
+      icon: location.icon,
+      content: location.content,
+      title: location.title,
+      animation: google.maps.Animation.DROP
+    });
+
+    // Add marker as property of location
+    location.marker = marker;
+
+
+
+    marker.addListener('click', function() {
+      self.infowindow.setContent(this.content);
+      self.infowindow.open(map, this);
+    });
+
+
+  })
+
+
+
+
+
+// for(var i = 0; i < self.locations().length; i++) {
+
+//     // Markers
+//     marker = new google.maps.Marker({
+//       position: self.locations()[i].coordinates,
+//       map: map,
+//       icon: self.locations()[i].icon,
+//       title: self.locations()[i].title,
+//       animation: google.maps.Animation.DROP
+//     });
+
+//     self.locations()[i].marker = marker;
+
+
+//     self.locations()[i].marker.addListener('click', function() {
+//       self.infowindow.open(map, this);
+//     });
+
+
+// }
+
+
+
+
+
+  // Infowindow
+  self.infowindow = new google.maps.InfoWindow();
+
+
+  self.showWindow = function(marker) {
+    google.maps.event.trigger(this.marker, 'click');
+  };
+
+
+
+
+
+
+
+}
+
+
+
+
+// Load map and start app
+
 function initMap() {
-  // Styles array from https://snazzymaps.com/style/38/shades-of-grey
+
+  // Styles from https://snazzymaps.com/style/38/shades-of-grey
   var styles = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -199,36 +294,6 @@ function initMap() {
     mapTypeControl: false
   });
 
-
-  locations.forEach(function(location) {
-  // Marker
-  var marker = new google.maps.Marker({
-    position: location.coordinates,
-    map: map,
-    icon: location.icon,
-    title: location.title,
-    animation: google.maps.Animation.DROP
-  });
-
-  // Infowindow
-  var infowindow = new google.maps.InfoWindow({
-    content: location.content
-  });
-  marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-})
-
-}
-
-
-
-
-
-
-
-
-
-function EdinburghViewModel() {
+  ko.applyBindings(new ViewModel());
 
 }

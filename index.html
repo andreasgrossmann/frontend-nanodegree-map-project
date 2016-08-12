@@ -12,10 +12,8 @@
     <div class="navmenu navmenu-default navmenu-fixed-left">
       <h1 style="font-size:24px;margin-left:10px;" ">Wee Edinburgh</h1>
       <p style="margin-left:10px;">Your local guide to Edinburgh's most awesome places.</p>
-      <ul class="nav navmenu-nav">
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+      <ul class="nav navmenu-nav" data-bind="foreach: locations">
+        <li><a href="#" data-bind="text: title, click: $root.showWindow"></a></li>
       </ul>
     </div>
 
