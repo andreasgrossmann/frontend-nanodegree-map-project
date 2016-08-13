@@ -313,3 +313,10 @@ function initMap() {
   ko.applyBindings(new ViewModel());
 
 }
+
+// Error handling function for Google map
+
+function mapError (){
+  document.getElementById('wrapper').innerHTML = '<div class="map-error"><h2>Oops, we weren\'t able to load your map.</h2><p>Here\'s a photo of a baby beaver instead... Please try again later.</p><img src="img/baby-beaver.jpg" alt="Photo of a baby beaver."></div>';
+}
+

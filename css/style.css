@@ -52,3 +52,11 @@ body {
 #map {
     height: 100vh;
 }
+
+/* Styles for map error */
+
+.map-error {
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
