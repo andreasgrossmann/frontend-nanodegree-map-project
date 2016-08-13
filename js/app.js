@@ -236,32 +236,8 @@ function ViewModel() {
 
 
 
-// for(var i = 0; i < self.locations().length; i++) {
 
-//     // Markers
-//     marker = new google.maps.Marker({
-//       position: self.locations()[i].coordinates,
-//       map: map,
-//       icon: self.locations()[i].icon,
-//       title: self.locations()[i].title,
-//       animation: google.maps.Animation.DROP
-//     });
-
-//     self.locations()[i].marker = marker;
-
-
-//     self.locations()[i].marker.addListener('click', function() {
-//       self.infowindow.open(map, this);
-//     });
-
-
-// }
-
-
-
-
-
-  // Infowindow
+  // Define one infowindow to be used for all markers
   self.infowindow = new google.maps.InfoWindow();
 
 
@@ -270,6 +246,40 @@ function ViewModel() {
   };
 
 
+
+
+  // Location filter input
+  self.filterInput = ko.observable();
+
+  // Filter function
+  self.locationFilter = ko.computed(function() {
+
+    // Check if there's text input
+    if(self.filterInput() !== undefined) {
+
+      // Set text input to lowercase
+      var searchQuery = self.filterInput().toLowerCase();
+      var locationTitle;
+
+      // Loop through location titles
+      self.locations().forEach(function(location) {
+
+        // Set them to lowercase
+        locationTitle = location.title.toLowerCase();
+
+        // Find all markers that don't match text input and hide them
+        // Otherwise, show all markers
+        if(locationTitle.search(searchQuery) === -1) {
+          location.marker.setVisible(false);
+        } else {
+          location.marker.setVisible(true);
+        }
+
+      })
+
+    }
+
+  }, this);
 
 
 
