@@ -267,6 +267,9 @@ function ViewModel() {
     // Check if there's text input
     if(self.filterInput() !== undefined) {
 
+      // Close any open infowindows (looks nicer and cleaner)
+      self.infowindow.close();
+
       // Set text input to lowercase
       var searchQuery = self.filterInput().toLowerCase();
       var locationTitle;
