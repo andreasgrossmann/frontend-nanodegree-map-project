@@ -20,7 +20,9 @@
     "bower": "^1.7.9",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.12",
+    "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.2",
+    "gulp-replace": "^0.5.4",
     "gulp-uglify": "^2.0.0"
   }
 }

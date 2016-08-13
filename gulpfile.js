@@ -1,8 +1,12 @@
+// Load plugins
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
+var htmlmin = require('gulp-htmlmin');
 var imagemin = require('gulp-imagemin');
+var replace = require('gulp-replace');
 var uglify = require('gulp-uglify');
 
+// Define paths
 var paths = {
     dist: 'dist/',
     images: ['img/*.{png,jpeg,jpg}', 'images/*.{png,jpeg,jpg}', '!node_modules/**','!bower_components/**'],
@@ -14,35 +18,52 @@ var paths = {
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
     'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
     'bower_components/knockout/dist/knockout.js'],
-    misc: ['*.html', '*.md','!node_modules/**', '!bower_components/**']
+    misc: ['*.md','!node_modules/**', '!bower_components/**']
 };
 
-gulp.task('images', function() {
-    return gulp.src(paths.images, {cwd: './**'})
-    .pipe(imagemin())
+// Get custom Google api key
+var googleApiKey = process.env.google_api_key
+
+// Minify html and add custom Google api key
+gulp.task('html', function() {
+  return gulp.src('index.html')
+    .pipe(replace('GOOGLE_API_KEY', googleApiKey))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(paths.dist))
 });
 
+// Minify js
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts, {cwd: './**'})
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist))
 });
 
+// Minify css
 gulp.task('styles', function() {
     return gulp.src(paths.styles, {cwd: './**'})
     .pipe(cleanCSS())
     .pipe(gulp.dest(paths.dist))
 });
 
+// Copy bower dependencies
 gulp.task('bower', function() {
     return gulp.src(paths.bower, {cwd: './**'})
     .pipe(gulp.dest(paths.dist))
 });
 
-gulp.task('misc', function() {
+// Optimize images
+gulp.task('images', function() {
+    return gulp.src(paths.images, {cwd: './**'})
+    .pipe(imagemin())
+    .pipe(gulp.dest(paths.dist))
+});
+
+// Copy readme
+gulp.task('copy', function() {
     return gulp.src(paths.misc, {cwd: './**'})
     .pipe(gulp.dest(paths.dist))
 });
 
-gulp.task('default', ['images', 'scripts', 'styles', 'bower', 'misc']);
+// Set default task
+gulp.task('default', ['html', 'scripts', 'styles', 'bower', 'images','copy']);
