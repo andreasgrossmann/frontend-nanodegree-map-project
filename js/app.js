@@ -226,10 +226,16 @@ function ViewModel() {
     location.visibility = ko.observable(true);
 
 
-
+    // Check if any markers are clicked
+    // Set content for infowindow and open it
     marker.addListener('click', function() {
       self.infowindow.setContent(this.content);
       self.infowindow.open(map, this);
+      // Make the marker bounce once
+      this.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function () {
+        location.marker.setAnimation(null);
+      }, 700);
     });
 
 
@@ -243,8 +249,8 @@ function ViewModel() {
   // Define one infowindow to be used for all markers
   self.infowindow = new google.maps.InfoWindow();
 
-
-  self.showWindow = function(marker) {
+  // Link clicks on list items to clicks on markers
+  self.listItemClicked = function(marker) {
     google.maps.event.trigger(this.marker, 'click');
   };
 
