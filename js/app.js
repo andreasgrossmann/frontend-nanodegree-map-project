@@ -222,6 +222,9 @@ function ViewModel() {
     // Add marker as property of location
     location.marker = marker;
 
+    // Make all list items initially visible
+    location.visibility = ko.observable(true);
+
 
 
     marker.addListener('click', function() {
@@ -248,6 +251,7 @@ function ViewModel() {
 
 
 
+
   // Location filter input
   self.filterInput = ko.observable();
 
@@ -267,12 +271,14 @@ function ViewModel() {
         // Set them to lowercase
         locationTitle = location.title.toLowerCase();
 
-        // Find all markers that don't match text input and hide them
-        // Otherwise, show all markers
+        // Find all markers and list items that don't match text input and hide them
+        // Otherwise, show all markers and list items
         if(locationTitle.search(searchQuery) === -1) {
           location.marker.setVisible(false);
+          location.visibility(false);
         } else {
           location.marker.setVisible(true);
+          location.visibility(true);
         }
 
       })

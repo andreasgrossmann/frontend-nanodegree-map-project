@@ -18,7 +18,7 @@
       </div>
 
       <ul class="nav navmenu-nav" data-bind="foreach: locations">
-        <li><a href="#" data-bind="text: title, click: $root.showWindow"></a></li>
+        <li><a href="#" data-bind="visible: visibility, text: title, click: $root.showWindow"></a></li>
       </ul>
     </div>
 
