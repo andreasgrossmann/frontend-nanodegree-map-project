@@ -1,6 +1,6 @@
 # Live version
 
-...
+https://andreasgrossmann.github.io/frontend-nanodegree-map-project/dist/
 
 # How to run locally with your own Google API key
 

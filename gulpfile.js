@@ -17,7 +17,8 @@ var paths = {
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/bootstrap/dist/js/bootstrap.min.js',
     'bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
-    'bower_components/knockout/dist/knockout.js'],
+    'bower_components/knockout/dist/knockout.js',
+    'bower_components/oauth-signature/dist/oauth-signature.min.js'],
     misc: ['*.md','!node_modules/**', '!bower_components/**']
 };
 
