@@ -258,10 +258,10 @@ self.yelp = function(title, description) {
           // Check if there's an entry for the business on Yelp
           // If there isn't, use location description as fallback
           if(results.businesses[0] !== undefined) {
-            // Check if the business has a Yelp review snippet
+            // Check if the business has a Yelp review snippet we can use
             // If it hasn't, use location description as fallback
             if(results.businesses[0].snippet_text !== undefined) {
-              self.infowindow.setContent(results.businesses[0].snippet_text);
+              self.infowindow.setContent('<span><img src="img/yelp.png" alt="Yelp" style="margin-bottom: 10px;"> review:</span>' + '<p>' + results.businesses[0].snippet_text + '</p>' + '<a href="' + results.businesses[0].url + '" target="_blank">Read more</a>');
             } else {
               self.infowindow.setContent(description);
             }
