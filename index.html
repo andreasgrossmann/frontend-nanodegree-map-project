@@ -40,8 +40,10 @@
 
     </div>
 
-    <!-- WHEN DONE DEVELOPING, REPLACE API KEY WITH: GOOGLE_API_KEY -->
-    <script async src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDVXq6jZ_UPisZwnMuIbmRDWOeHujKwI_g&callback=initMap" onerror="mapError()"></script>
+    <!-- Include error handling first so that it is readily available -->
+    <script src="js/error.js"></script>
+    <!-- Include your Google API key here -->
+    <script async src="https://maps.googleapis.com/maps/api/js?v=3&key=YOUR_API_KEY&callback=initMap" onerror="mapError()"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>

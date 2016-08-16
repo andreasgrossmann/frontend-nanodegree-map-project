@@ -22,25 +22,25 @@ var paths = {
     misc: ['*.md','!node_modules/**', '!bower_components/**']
 };
 
-// Get custom Google api key
+// Get Google API key
 var googleApiKey = process.env.google_api_key
 
-// Minify html and add custom Google api key
+// Minify HTML and add Google API key
 gulp.task('html', function() {
   return gulp.src('index.html')
-    .pipe(replace('GOOGLE_API_KEY', googleApiKey))
+    .pipe(replace('YOUR_API_KEY', googleApiKey))
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(paths.dist))
 });
 
-// Minify js
+// Minify JS
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts, {cwd: './**'})
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist))
 });
 
-// Minify css
+// Minify CSS
 gulp.task('styles', function() {
     return gulp.src(paths.styles, {cwd: './**'})
     .pipe(cleanCSS())
@@ -66,5 +66,4 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(paths.dist))
 });
 
-// Set default task
 gulp.task('default', ['html', 'scripts', 'styles', 'bower', 'images','copy']);
